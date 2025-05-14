@@ -31,8 +31,10 @@
             ],
             "tsConfig": "tsconfig.app.json",
             "assets": [
-                "public/favicon.ico",
-                "public/assets" 
+              {
+                "glob": "**/*",
+                "input": "public"
+              }
             ],
             "styles": [
               "@angular/material/prebuilt-themes/rose-red.css",
@@ -90,8 +92,7 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "public",
-                "output": "/assets"
+                "input": "public"
               }
             ],
             "styles": [
@@ -105,3 +106,4 @@
     }
   }
 }
+
