@@ -1,0 +1,33 @@
+<section class="min-h-screen bg-[#e5141b] flex items-center justify-center">
+    <div class="flex flex-col sm:flex-row w-full max-w-6xl mx-auto gap-6 p-6">
+  
+      <!-- Formulaire avec ombre flottante -->
+      <div class="flex-1 flex items-center justify-center">
+        <div class="bg-white rounded-2xl shadow-2xl drop-shadow-lg p-8 sm:max-w-md w-full transition duration-300 transform hover:-translate-y-1">
+          <h1 class="text-xl font-bold text-gray-900 mb-6 text-center">
+            Sign in to your account
+          </h1>
+          <form (ngSubmit)="onSubmit()" #loginForm="ngForm" class="space-y-4">
+            <div>
+              <label class="block mb-2 text-sm font-medium text-gray-900">Your email</label>
+              <input type="email" [(ngModel)]="email" name="email" required class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg block w-full p-2.5">
+            </div>
+            <div>
+              <label class="block mb-2 text-sm font-medium text-gray-900">Password</label>
+              <input type="password" [(ngModel)]="password" name="password" required class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg block w-full p-2.5">
+            </div>
+            <div *ngIf="errorMessage" class="text-red-600 text-sm">{{ errorMessage }}</div>
+            <button type="submit" class="w-full text-white bg-primary-600 hover:bg-primary-700 font-medium rounded-lg text-sm px-5 py-2.5">Sign in</button>
+          </form>
+  
+        </div>
+      </div>
+  
+
+      <div class="flex-1 flex items-center justify-center">
+        <img src="assets/gastrologo.png" alt="Logo" class="w-[500px] h-[400px] object-contain">
+      </div>
+  
+    </div>
+  </section>
+  
