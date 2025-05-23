@@ -84,12 +84,17 @@
       <!-- page content -->
       <div class="flex-grow flex">
         <!-- store menu -->
-        <app-product></app-product>
+        <app-category *ngIf="currentView === 'category'" (categorySelected)="showProducts($event)"></app-category>
+        <app-product
+        *ngIf="currentView=== 'product'"
+        [category]="selectedCategory"
+        (back)="showCategories()">
+        </app-product>
         <!-- end of store menu -->
   
         <!-- right sidebar -->
         <div class="w-5/12 flex flex-col bg-blue-gray-50 h-full bg-white pr-4 pl-2 py-4">
-            
+          <app-cart></app-cart>
         </div>
         <!-- end of right sidebar -->
       </div>
