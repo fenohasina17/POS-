@@ -1,5 +1,7 @@
 import { Component, OnInit, EventEmitter, Output, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { ProductService } from '../../services/product.service';
+import { CartService} from '../../services/cart.service';
+import { CartItem } from '../../models/cart.model';
 
 @Component({
   selector: 'app-product',
@@ -15,7 +17,7 @@ export class ProductComponent implements OnChanges, OnInit {
   products: any[] = [];
   filtered: any[] = [];
 
-  constructor(private productService: ProductService) {}
+  constructor(private productService: ProductService, private cartService: CartService) {}
 
   ngOnInit() {
     this.loadProducts();
@@ -66,8 +68,15 @@ export class ProductComponent implements OnChanges, OnInit {
     priceFormat(price: number): string {
     return price.toFixed(0) + ' Ar';
   }   
-  addToCart(product: any): void {
-    console.log('Produit ajouté au panier :', product);
-    // à compléter avec un service de panier si nécessaire
+  addToCart(product: any) {
+    const item: CartItem = {
+      productId: product.id,
+      name: product.name,
+      image: product.image,
+      price: product.pricing[0].price,
+      qty: 1
+    };
+    this.cartService.addToCart(item);
+    console.log(this.cartService.getCart());
   }
 }

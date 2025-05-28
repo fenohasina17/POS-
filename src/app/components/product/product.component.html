@@ -54,12 +54,12 @@
         <!-- Liste des produits -->
         <div *ngIf="filtered.length > 0" class="grid grid-cols-8 gap-8 pb-3">
           <div
-            *ngFor="let product of filtered"
-            role="button"
-            class="select-none cursor-pointer transition-shadow overflow-hidden rounded-2xl bg-white shadow hover:shadow-lg"
-            [title]="product.name"
-            (click)="addToCart(product)"
-          >
+          *ngFor="let product of filtered"
+          role="button"
+          class="select-none cursor-pointer transition-shadow overflow-hidden rounded-2xl bg-white shadow hover:shadow-lg"
+          [title]="product.name"
+          (click)="addToCart(product)"
+        >
             <img src=" assets/default-product-image.jpg" [alt]="product.name" />
             <div class="flex pb-3 px-3 text-sm -mt-3">
               <p class="flex-grow truncate mr-1">{{ product.name }}</p>
